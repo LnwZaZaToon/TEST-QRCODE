@@ -29,25 +29,26 @@ function App() {
     }
   }, [data]);
 
+  // ...existing code...
   return (
     <div style={{ textAlign: "center", padding: "2rem" }}>
-      <h1>QR Code Scanner</h1>
+      <h1>QR Code Scanner 3</h1>
 
-      {!hasPermission ? (
-        <button onClick={requestCamera} style={{ padding: "1rem 2rem", fontSize: "1rem" }}>
-          Request Camera Access
+
+      <button onClick={requestCamera} style={{ padding: "1rem 2rem", fontSize: "1rem" }}>
+        Request Camera Access
+      </button>
+      <div style={{ maxWidth: "500px", margin: "1rem auto" }}>
+        <Scanner onScan={(result) => handleResult(result)} />;
+        {}
+        <button
+          style={{ marginTop: "1rem", padding: "0.5rem 1rem" }}
+          onClick={() => handleResult("TEST_QR_DATA", null)}
+        >
+          Simulate Scan
         </button>
-      ) : (
-        <div style={{ maxWidth: "500px", margin: "1rem auto" }}>
-          <Scanner
-            onResult={handleResult}
-            onError={(error) => console.error("Scanner error:", error)}
-            options={{
-              constraints: { facingMode: "environment" },
-            }}
-          />
-        </div>
-      )}
+      </div>
+
 
       <p style={{ fontSize: "1.2rem", marginTop: "1rem" }}>
         <strong>Scanned Data:</strong> {data || "Waiting..."}
