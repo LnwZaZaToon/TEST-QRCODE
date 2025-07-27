@@ -21,6 +21,7 @@ export default function ScannerPage() {
   const [deviceId, setDeviceId] = useState<string | undefined>(undefined);
   const [tracker, setTracker] = useState<string | undefined>("centerText");
   const [pause, setPause] = useState(false);
+  const [data,setdata]  = useState("nodata")
 
   const devices = useDevices();
 
@@ -38,7 +39,7 @@ export default function ScannerPage() {
   }
 
   const handleScan = async (data: string) => {
-    setPause(true);
+    setPause(true);/*
     try {
       const response = await fetch(
         `your-api-url?code=${encodeURIComponent(data)}`
@@ -54,7 +55,9 @@ export default function ScannerPage() {
       console.log(error);
     } finally {
       setPause(false);
-    }
+    }*/
+   setdata(data)
+   setPause(false);
   };
 
   return (
@@ -77,6 +80,9 @@ export default function ScannerPage() {
           <option value="boundingBox">Bounding Box</option>
           <option value={undefined}>No Tracker</option>
         </select>
+        <div>
+          <h1>result {data}</h1>
+        </div>
       </div>
       <Scanner
         formats={[
@@ -120,7 +126,7 @@ export default function ScannerPage() {
           finder: true,
           tracker: getTracker(),
         }}
-        allowMultiple={true}
+        allowMultiple={false}
         scanDelay={2000}
         paused={pause}
       />
