@@ -13,7 +13,7 @@ const App = () => {
     return (
     <div>
       <h1>QR CODE</h1>
-      <Scanner onScan={(result) => handledata(result)} />
+      <Scanner onScan={(result) => console.log(result)} />
       <h2>RESULT : {data}</h2>
     </div> )
 };
