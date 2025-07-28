@@ -27,6 +27,16 @@
   }
 }
 
+.result-content {
+  max-height: 300px; /* Limit height */
+  overflow: auto;    /* Scroll if content exceeds */
+  white-space: pre-wrap; /* Wrap long lines if needed */
+  word-wrap: break-word; /* Break long words if needed */
+  background-color: #000000;
+  padding: 10px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+}
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
