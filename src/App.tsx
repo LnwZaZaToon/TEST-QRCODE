@@ -160,6 +160,11 @@ export default function ScannerPage() {
 
   };
 
+  const handleReset =() =>{
+    setData("")
+    setResult("")
+  }
+
   return (
     <Container>
       <Card>
@@ -186,8 +191,8 @@ export default function ScannerPage() {
             <option value={undefined}>ไม่แสดงตัวช่วย</option>
           </select>
 
-          <select onChange={(e) => 
-            settoken({Role: e.target.value})
+          <select onChange={(e) =>
+            settoken({ Role: e.target.value })
           }>
             <option value="admin">admin</option>
             <option value="user">user</option>
@@ -236,8 +241,15 @@ export default function ScannerPage() {
           <pre>{result}</pre>
         </ResultDisplay>
         <button onClick={() => handleScan(
-          "7fd04eb45c1a968a806aa582d08d6c696212fe207dbb5d9d61f477d150397dba127b221e02058586c4ecbaf53a9a90921eb124d87195f066bcfedc05466a0cbd011ec3da2fe9e3b413c978af156f86ab9b85b7059b13e50f53aef0e2be0f1c21cbc1b436d44fa5f3cec3dab201256a4155a6e848ec4b46394b8aaab27b8998802bc1142d421f7e4fac57d2ce83d0565951e58b489530b488bec01f18370771c380dc1421e16ad40f278c18aa758e590c23db65fff1636e525686d9108e03f3a5477d63736fd675272d97044c237935717e1d8aaa2b4f3cf29610ce1805e6eef8d1d15a333a31d50e08a58e31617ec10d7e7bc9b5816fcb992422b7532e853945fecc70c8139eda617802532e988fe70626bdd9af15460e8b27e787d33957317f3e4c4854949b9f29d17f59f4d4d087114097ece138130acc11ed9e7d99ba53298505dee6e5b01f41a6ebbfe19e23ea8ef274ad826b3670fde1ea13719399a613a857d7a2a1c3ee6aa5e624bb377461e9321df711e225eb70d2f3eade72e9b42906a939d88f41ade9622f"
-        )}></button>
+          "5zIx5KVXBbf8VHjvvKHWIh6+YeO/p6tfqcjIkxG4q/T/Lr/SArdbQXJI+XzMRzoX1OrHNvJVhaLNkSGhfPp7HrrCQR7Sk7NGYkcCuQ=="
+        )}>ปุ่ม TEST Mockdata</button>
+        <button onClick={() => handleReset()}> Reset</button>
+
+        <ResultDisplay>
+          <h2> KEY1 = 1234567891234567</h2>
+          <h2> KEY2 = 1234567891234569</h2>
+          <h2> iv = s6504062636039za</h2>
+        </ResultDisplay>
       </Card>
     </Container>
   );
